@@ -26,14 +26,17 @@ Here are the performance statistics that I found on my Intel i5-4460 @ 3.20GHz. 
 
 ### C#:
 Duration: 12 seconds
+
 Passwords / second: 26,772,698
 
 ### C++:
 Duration: 6.45 seconds
+
 Passwords / second: 49,778,808
 
 ### Python:
 Duration: > 5 minutes
+
 Passwords / second: coming soon...
 
 ### Kotlin:
