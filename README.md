@@ -22,7 +22,7 @@ b
 ```
 
 ## Performance:
-Here are the performance statistics that I found on my Intel i5-4460 @ 3.20GHz. Each program was tasked with cracking the password `zzzzzz`. These should give you a rough estimate of how fast the program is in each language. (hint: if you're language-agnostic, use C++) Here's the results:
+Here are the performance statistics that I found on my Intel i5-4460 @ 3.20GHz. Each program was tasked with cracking the password `zzzzzz`. These should give you a rough estimate of how fast the program is in each language. The Python version does not include statistics (such as duration or passwords / second) but those will be added soon. Kotlin had a few issues compiling with coroutines, so I'll get those statistics as soon as I can compile it 😂. (hint: if you're language-agnostic, use C++) Here's the results:
 
 ### C#:
 Duration: 12 seconds
