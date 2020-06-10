@@ -19,7 +19,7 @@ import kotlin.system.measureTimeMillis
  */
 var stop: Boolean = false // Used when the functions need to stop to increase value
 // exit is an array containing bool values for each length (1-8). When all possibilities for one length
-// of a string has been made, the value becomes true. This is necessary for the koroutines.
+// of a string has been made, the value becomes true. This is necessary for the coroutines.
 var exit = arrayOf<Boolean>(false, false, false, false, false, false, false, false)
 var tries: Long = 0
 var checkEnd: String = ""

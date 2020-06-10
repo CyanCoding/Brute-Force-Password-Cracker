@@ -32,7 +32,7 @@ namespace Brute_Force_Attacker {
         static void Main(string[] args) {
             Program program = new Program();
             Console.WriteLine("Welcome to the C# Brute Force Password Cracker!");
-            Console.Write("This program was created by CyanCoding.");
+            Console.WriteLine("This program was created by CyanCoding.");
             Console.WriteLine("Note that passwords found in under a second won't tell you how many passwords per second they got.");
             Console.WriteLine("\n\n----------------------------------------------------------------------------------------------");
 

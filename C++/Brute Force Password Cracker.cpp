@@ -24,7 +24,7 @@ void inline generate(int length, string current) {
 		return;
 	}
 
-    // While cracking password, recursively find next password
+	// While cracking password, recursively find next password
 	if (stop == false) {
 		for (int i = 0; i < 26; i++) {
 			string appended = current + alphabet[i];
@@ -45,11 +45,15 @@ int main() {
 
 	while (stop == false) {
 		static unsigned int stringLength = 1;
-        generate(stringLength, "");
+		generate(stringLength, "");
 		stringLength++;
 	}
 
 	cout << "CyanCoding's C++ BFPC cracked the password " << password << " in " << amount << " attempts and " << setprecision(2) << fixed << (float)(clock() - start) / CLOCKS_PER_SEC << " seconds." << endl << endl << "That's about " << setprecision(0) << amount / ((float)(clock() - start) / CLOCKS_PER_SEC) << " passwords per second!";
 
+	cout << endl << "Press any key to continue...";
+
+	string key;
+	cin >> key;
 	return 0;
 }
