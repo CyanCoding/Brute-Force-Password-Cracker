@@ -30,9 +30,9 @@ Duration: 12 seconds
 Passwords / second: 26,772,698
 
 ### C++:
-Duration: 6.45 seconds
+Duration: 6.31 seconds
 
-Passwords / second: 49,778,808
+Passwords / second: 50,914,804
 
 ### Python:
 Duration: > 5 minutes
