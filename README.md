@@ -22,7 +22,7 @@ b
 ```
 
 ## Performance:
-Here are the performance statistics that I found on my Intel i5-4460 @ 3.20GHz. Each program was tasked with cracking the password `zzzzzz`. These should give you a rough estimate of how fast the program is in each language. The Python version does not include statistics (such as duration or passwords / second) but those will be added soon. Kotlin had a few issues compiling with coroutines, so I'll get those statistics as soon as I can compile it 😂. (hint: if you're language-agnostic, use C++) Here's the results:
+Here are some statistics. All of these were run on the same Linux machine, so the runtime will obviously vary but it should give you a good idea of the speed differences between languages. Each program was tasked with finding the password `zzzzzz`. If you're language agnostic I highly recommend using C++.
 
 ### C#:
 Duration: 12 seconds
@@ -36,8 +36,6 @@ Passwords / second: 50,914,804
 
 ### Python:
 Duration: > 5 minutes
-
-Passwords / second: coming soon...
 
 ### Kotlin:
 Statistics coming soon...
