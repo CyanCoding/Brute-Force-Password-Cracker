@@ -25,9 +25,8 @@ b
 I don't have exact speed details on Python and Kotlin, but I do know the order in which they rank with C++ obliterating all competition.
 Here is the breakdown by performance:
 
-Slowest: Python
-3. Kotlin
-2. C#
-Fastest: C++
+1. C++
+2. C#/Kotlin
+3. Python
 
 On my machine (Ryzen 7 3700U 4 cores) the C++ program ran at almost 80 million passwords per second, which is phenomenal performance compared to an average of 10-30 million on C#, Kotlin, and Python. I am continuing to optimize the C++ program so expect further speed improvements.
