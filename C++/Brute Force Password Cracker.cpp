@@ -1,59 +1,83 @@
 #include <iostream>
-#include <time.h>
-#include <iomanip>
-#include <Windows.h>
-#include <thread>
+#include <string> // to_string
+#include <iomanip> // setprecision
 
 using namespace std;
 
 bool stop = false;
-int amount = 0;
+long long amount = 0;
 string password;
+clock_t start;
 
-const char alphabet[26] = {
-	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+const char Alphabet[62] = {
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z'
 };
 
+string separateWithCommas(long long num) {
+    string s = to_string(num);
+    int thousands = s.length() - 3;
 
-void inline generate(int length, string current) {
-	if (length == 0 && stop == false) { // If the password is at the 0th place, close off
-		amount++;
-		if (current == password) {
-			stop = true;
-		}
-		return;
-	}
+    while (thousands > 0) {
+        s.insert(thousands, ",");
+        thousands -= 3;
+    }
 
-	// While cracking password, recursively find next password
-	if (stop == false) {
-		for (int i = 0; i < 26; i++) {
-			string appended = current + alphabet[i];
-			generate(length - 1, appended);
-		}
-	}
+    return s;
+}
+
+void inline crack(unsigned int length, string current) {
+    if (length == 0 && stop == false) {
+        amount++;
+
+        if (amount % 10000000 == 0) {
+            cout << '\r' << separateWithCommas(amount) << " - " << current << " - " << separateWithCommas(amount / ((float)(clock() - start) / CLOCKS_PER_SEC)) << " p/sec";
+            cout.flush();
+        }
+        if (current == password) {
+            stop = true;
+        }
+        return;
+    }
+    if (stop == false) {
+        for (unsigned int i = 0; i < 62; i++) {
+            crack(length - 1, current + Alphabet[i]);
+        }
+    }
 }
 
 int main() {
-	cout << "Welcome to CyanCoding's 2nd Brute Force Password Cracker!" << endl << endl;
+    // Greet the user
+    cout << "Welcome to CyanCoding's Brute Force Password Cracker!" << endl << endl;
+    cout << "What do you want your password to be? > ";
+    cin >> password;
 
-	cout << "What do you want your password to be? > ";
-	cin >> password;
+    cout << endl << "Most passwords are more than 8 digits.";
+    cout << endl << "Enter your starting number (default: 1) > ";
 
-	cout << endl << "Attempting to crack " << password << endl << endl;
+    int startNumber = 1;
+    cin >> startNumber;
 
-	clock_t start = clock();
+    cout << "\rAttempting to crack " << password << "..." << endl;
 
-	while (stop == false) {
-		static unsigned int stringLength = 1;
-		generate(stringLength, "");
-		stringLength++;
-	}
+    start = clock();
 
-	cout << "CyanCoding's C++ BFPC cracked the password " << password << " in " << amount << " attempts and " << setprecision(2) << fixed << (float)(clock() - start) / CLOCKS_PER_SEC << " seconds." << endl << endl << "That's about " << setprecision(0) << amount / ((float)(clock() - start) / CLOCKS_PER_SEC) << " passwords per second!";
+    while (stop == false) {
+        static unsigned int pwLength = startNumber;
+        crack(pwLength, "");
+        pwLength++;
+        if (stop == true) {
+            break;
+        }
+    }
+    cout << "CyanCoding's C++ BFPC cracked the password " << password << " in " <<
+        separateWithCommas(amount) << " attempts and " << setprecision(2) << fixed <<
+        (float)(clock() - start) / CLOCKS_PER_SEC << " seconds." << endl << endl <<
+        "That's about " << setprecision(0) <<
+        separateWithCommas(amount / ((float)(clock() - start) / CLOCKS_PER_SEC)) <<
+        " passwords per second!" << endl << endl;
 
-	cout << endl << "Press any key to continue...";
+    cin.get();
+    cin.get();
 
-	string key;
-	cin >> key;
-	return 0;
+    return 0;
 }
