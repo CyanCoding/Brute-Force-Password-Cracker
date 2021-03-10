@@ -22,21 +22,12 @@ b
 ```
 
 ## Performance:
-Here are some statistics. All of these were run on the same Linux machine, so the runtime will obviously vary but it should give you a good idea of the speed differences between languages. Each program was tasked with finding the password `zzzzzz`. If you're language agnostic I highly recommend using C++.
+I don't have exact speed details on Python and Kotlin, but I do know the order in which they rank with C++ obliterating all competition.
+Here is the breakdown by performance:
 
-### C#:
-Duration: 12 seconds
+Slowest: Python
+3. Kotlin
+2. C#
+Fastest: C++
 
-Passwords / second: 26,772,698
-
-### C++:
-Duration: 6.31 seconds
-
-Passwords / second: 50,914,804
-
-### Python:
-Duration: > 5 minutes
-
-### Kotlin:
-Statistics coming soon...
-
+On my machine (Ryzen 7 3700U 4 cores) the C++ program ran at almost 80 million passwords per second, which is phenomenal performance compared to an average of 10-30 million on C#, Kotlin, and Python. I am continuing to optimize the C++ program so expect further speed improvements.
