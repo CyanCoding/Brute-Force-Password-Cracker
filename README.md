@@ -40,6 +40,9 @@ On my machine (Ryzen 7 3700U 4 cores) the C++ program ran at almost 90 million p
 Here's a few things I've learned over the course of a few years testing with these programs.
 
 1. Whenever you modify the code, it's a good idea to have the code output what it's bruteforcing. A simple `Console.WriteLine(current)` should suffice.
-2. Reduce console output as much as possible. If you are bruteforcing and outputting, your speed has just dropped by 90% and is being limited by the terminal and not your computer's raw power.
+2. Reduce console output as much as possible except when debugging. If you are bruteforcing and outputting, your speed has just dropped by 90% and is being limited by the terminal and not your computer's raw power.
 3. Sometimes if you multi-thread, you effectively get the same results but with half the performance and twice the CPU usage. Trust me, I worked on some of these programs for several months and found no benefit from multithreading (with the exception of the Kotlin one, which uses Coroutines to bruteforce different password lenghts at the same time).
 4. If you want as much freaking speed as possible, run the program right after booting up your computer while it's plugged in and on max performance settings. For fun, see how opening other apps and unplugging your laptop affect performance!
+
+
+***This project seems to be pretty popular :). If you see anything you like or there are any features you want me to add, please create an issue!***
