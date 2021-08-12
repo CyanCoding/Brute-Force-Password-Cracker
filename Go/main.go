@@ -8,11 +8,13 @@ package main
 import (
 	"fmt"
 	"time"
+
+	"github.com/dustin/go-humanize"
 )
 
 var passwordToGuess string = "hello" // The password we are guessing
 var done bool = false                // Whether we're finished or not
-var tries float64 = 0                // The amount of attempts we've made
+var tries float32 = 0                // The amount of attempts we've made
 var attemptingLength = 1             // The length we're guessing
 
 var availableCharacters = []rune{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -53,9 +55,9 @@ func main() {
 	}
 
 	endTime := time.Since(startTime)
-	fmt.Println("!!!!! ------- !!!!!!")
-	fmt.Println("Finished in", int64(tries), "tries!")
-	fmt.Println("That took", endTime.Seconds(), "seconds!")
-	var triesPerSec = tries / endTime.Seconds()
-	fmt.Println("That's", int64(triesPerSec), "tries per second!")
+	fmt.Println("Finished in", humanize.Comma(int64(tries)), "tries!")
+	fmt.Println("That took", humanize.FormatFloat("###,###.##", endTime.Seconds()), "seconds!")
+
+	triesPerSec := tries / float32(endTime.Seconds())
+	fmt.Println("That's", humanize.Commaf(float64(triesPerSec)), "tries per second!")
 }
