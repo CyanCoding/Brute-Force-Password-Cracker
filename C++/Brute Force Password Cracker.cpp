@@ -51,18 +51,12 @@ int main() {
     cout << "What do you want your password to be? > ";
     cin >> password;
 
-    cout << endl << "Most passwords are more than 8 digits.";
-    cout << endl << "Enter your starting number (default: 1) > ";
-
-    int startNumber = 1;
-    cin >> startNumber;
-
     cout << "\rAttempting to crack " << password << "..." << endl;
 
     start = clock();
 
     while (stop == false) {
-        static unsigned int pwLength = startNumber;
+        static unsigned int pwLength = 1;
         crack(pwLength, "");
         pwLength++;
         if (stop == true) {
