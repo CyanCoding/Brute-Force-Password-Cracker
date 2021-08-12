@@ -63,15 +63,12 @@ int main() {
             break;
         }
     }
-    cout << "CyanCoding's C++ BFPC cracked the password " << password << " in " <<
+    cout << "\rCyanCoding's C++ BFPC cracked the password \"" << password << "\" in " <<
         separateWithCommas(amount) << " attempts and " << setprecision(2) << fixed <<
         (float)(clock() - start) / CLOCKS_PER_SEC << " seconds." << endl << endl <<
         "That's about " << setprecision(0) <<
         separateWithCommas(amount / ((float)(clock() - start) / CLOCKS_PER_SEC)) <<
         " passwords per second!" << endl << endl;
-
-    cin.get();
-    cin.get();
 
     return 0;
 }
