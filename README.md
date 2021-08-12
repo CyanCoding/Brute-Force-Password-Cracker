@@ -1,44 +1,38 @@
 # Brute-Force Password Cracker
-The brute-force password cracker is an application written in *C#*, *C++*, *Kotlin*, and *Python* that brute forces a password that you pass to the function. Read more about brute force password crackers [here](https://en.wikipedia.org/wiki/Brute-force_attack).
+Languages available:
+1. *C++*
+2. *C#*
+3. *Python*
+4. *Kotlin*
+5. **NEW (beta):** *Go*
 
-The general idea is that it checks every possible character combination repeatedly until it matches the provided string. **Note**: Built into the Kotlin version are coroutines that have it check multiple lengths of a string at a time for as many cores as the processor you're using has. You can disable this feature and just have it run one length at a time. I've found that using multiple cores can speed up the overall process as it makes it easier for it to guess longer lengths faster.
+## About these programs
+A brute force program attempts every possible solution when cracking a password.
+These are not just useful for hacking but can be applicable in many programs. They 
+are often inefficient and time consuming because they are so thorough.
 
-Example output with coroutines:
-```
-a
-aa
-aaa
-aaaa
-b
-ab
-aab
-aaab
-```
-
-Example output without coroutines:
-```
-a
-b
-```
+Read more about brute force password crackers [here](https://en.wikipedia.org/wiki/Brute-force_attack).
 
 ## Implementation:
-If you look at the code for each language, implementation should be fairly easy enough. You can pretty much copy and paste the function, make slight modifications to fit your project, and then run. 
+If you look at the code for each language, implementation should be fairly easy enough.
+You can pretty much copy and paste the function, make slight modifications to fit your project, and then run. 
 
 ## Performance:
-I don't have exact speed details on Python and Kotlin, but I do know the order in which they rank with C++ obliterating all competition.
-Here is the breakdown by performance:
+In general, the lower-level programming language you use the faster performance you can expect.
+*An exception is the Go language, which generally has speeds that parallel C++, yet in my initial
+testing is considerably slower in brute forcing.*
 
-1. C++
-2. C#/Kotlin
-3. Python
+The best way to measure performance is in passwords guessed per second. It's the computer's
+ability to generate strings and match them with the password to guess.
+The most powerful computers in the world can reach speeds of 1 billion passwords / second.
 
-On my machine (Ryzen 7 3700U 4 cores) the C++ program ran at almost 90 million passwords per second, which is phenomenal performance compared to an average of 10-30 million on C#, Kotlin, and Python. I am continuing to optimize the C++ program so expect further speed improvements.
+These programs are not optimized enough for that kind of speed, but with a fast PC you can
+achieve 100 million / sec running the C++ program.
 
-### Notes:
-Here's a few things I've learned over the course of a few years testing with these programs.
+## Project future
+- [ ] Find ways to make the program faster besides just reducing slow functions.
+- [ ] Use multiple threads for faster performance.
+- [ ] Utilize RAM and a cache for quickly reading passwords without having to generate new ones.
 
-1. Reduce console output as much as possible except when debugging. If you are bruteforcing and outputting, your speed has just dropped by 90% and is being limited by the terminal and not your computer's raw power.
-2. Sometimes if you multi-thread, you effectively get the same results but with half the performance and twice the CPU usage. Trust me, I worked on some of these programs for several months and found no benefit from multithreading (with the exception of the Kotlin one, which uses Coroutines to bruteforce different password lenghts at the same time).
-
-
-***Coming soon: Brute Force Password Cracker in Go***
+I've already tried all of these, but they haven't made a significant impact on speed so I'll
+keep optimizing and coming up with new methods as time goes on.
