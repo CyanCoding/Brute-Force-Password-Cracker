@@ -36,9 +36,9 @@ private const string[] AVAILABLE_LETTERS = {
 	"R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 };
 
-private bool done = false; 			// This is true when we match the password
+private bool done = false; 	        // This is true when we match the password
 private int attemptingLength = 1; 	// The length we're guessing
-private int64 tries = 0;			// The amount of tries we've made
+private int64 tries = 0;	        // The amount of tries we've made
 
 /*
  * The meat of our program that generates passwords
@@ -62,11 +62,11 @@ private static void bruteForce(int length, string pw, string password) {
  * The main function to run
  */
 int main (string[] args) {
-	print("Welcome to the Vala Brute Force Password Cracker!\n");
-	print("This program was created by CyanCoding.\n");
-	print("-------------------------------------------------\n");
-	print("Please enter your password > ");
-	string input = stdin.read_line();
+    print("Welcome to the Vala Brute Force Password Cracker!\n");
+    print("This program was created by CyanCoding.\n");
+    print("-------------------------------------------------\n");
+    print("Please enter your password > ");
+    string input = stdin.read_line();
     
     // Milliseconds start time
     int64 startTime = get_real_time();
@@ -85,5 +85,5 @@ int main (string[] args) {
     int triesPerSec = int.parse(tries.to_string()) / timeDiff;
     print("That's " + triesPerSec.to_string() + " tries per second\n");
     
-	return 0;
+    return 0;
 }
