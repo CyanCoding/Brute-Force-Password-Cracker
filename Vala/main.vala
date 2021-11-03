@@ -36,9 +36,9 @@ private const string[] AVAILABLE_LETTERS = {
     "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 };
 
-private bool done = false; 	        // This is true when we match the password
+private bool done = false; 		// This is true when we match the password
 private int attemptingLength = 1; 	// The length we're guessing
-private int64 tries = 0;	        // The amount of tries we've made
+private int64 tries = 0;		// The amount of tries we've made
 
 /*
  * The meat of our program that generates passwords
@@ -82,8 +82,8 @@ int main (string[] args) {
     print("Finished in " + tries.to_string() + " tries!\n");
     print("That took " + timeDiff.to_string() + " seconds!\n");
     
-    int triesPerSec = int.parse(tries.to_string()) / timeDiff;
-    print("That's " + triesPerSec.to_string() + " tries per second\n");
+    float triesPerSec = float.parse(tries.to_string()) / timeDiff;
+    stdout.printf("That's %0.3f tries per second.\n", triesPerSec);
     
     return 0;
 }
