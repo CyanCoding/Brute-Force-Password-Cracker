@@ -36,9 +36,9 @@ private const string[] AVAILABLE_LETTERS = {
 	"R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 };
 
-private bool done = false; 			// This is true when we match the password
+private bool done = false; 		// This is true when we match the password
 private int attemptingLength = 1; 	// The length we're guessing
-private int tries = 0;				// The amount of tries we've made
+private int tries = 0;			// The amount of tries we've made
 
 /*
  * The meat of our program that generates passwords
