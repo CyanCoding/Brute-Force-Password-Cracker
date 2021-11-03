@@ -30,23 +30,24 @@
 // This is the list we bruteforce
 private const string[] AVAILABLE_LETTERS = {
     "a", "b", "c", "d", "e", "f", "g", "h",
-    "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
-    "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
-    "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-    "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+	"i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
+	"x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
+	"C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+	"R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 };
 
-private bool done = false; 		// This is true when we match the password
+private bool done = false; 			// This is true when we match the password
 private int attemptingLength = 1; 	// The length we're guessing
-private int tries = 0;			// The amount of tries we've made
+private int64 tries = 0;			// The amount of tries we've made
 
 /*
  * The meat of our program that generates passwords
  */
 private static void bruteForce(int length, string pw, string password) {
+	//print(pw + "\n");
     if (length == 0 && !done) {
     	if (pw == password) {
-		done = true;
+    		done = true;
     	}
     }
     else if (!done) {
@@ -68,9 +69,9 @@ int main (string[] args) {
 	string input = stdin.read_line();
     
     // Milliseconds start time
-	int64 startTime = get_real_time();
+    int64 startTime = get_real_time();
     
-	while (!done) {
+    while (!done) {
     	bruteForce(attemptingLength, "", input);
     	attemptingLength++;
     }
@@ -81,7 +82,7 @@ int main (string[] args) {
     print("Finished in " + tries.to_string() + " tries!\n");
     print("That took " + timeDiff.to_string() + " seconds!\n");
     
-    int triesPerSec = tries / timeDiff;
+    int triesPerSec = int.parse(tries.to_string()) / timeDiff;
     print("That's " + triesPerSec.to_string() + " tries per second\n");
     
 	return 0;
