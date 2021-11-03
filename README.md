@@ -1,5 +1,5 @@
 # Brute-Force Password Cracker
-**About:** A repository with brute force password crackers written in several different programming languages.
+**About:** A repository with brute force password crackers I have personally written in several different programming languages.
 
 Languages available:
 1. C++
