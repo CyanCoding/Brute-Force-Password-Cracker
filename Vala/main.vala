@@ -47,13 +47,13 @@ private static void bruteForce(int length, string pw, string password) {
 	//print(pw + "\n");
     if (length == 0 && !done) {
     	if (pw == password) {
-    		done = true;
+    	    done = true;
     	}
     }
     else if (!done) {
     	for (int i = 0; i < AVAILABLE_LETTERS.length; i++) {
-    		tries++;
-    		bruteForce(length - 1, pw + AVAILABLE_LETTERS[i], password);
+    	    tries++;
+    	    bruteForce(length - 1, pw + AVAILABLE_LETTERS[i], password);
     	}
     }
 }
